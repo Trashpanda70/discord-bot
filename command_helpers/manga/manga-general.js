@@ -30,7 +30,7 @@ exports.insertManga = async (manga, guild_id, user_id) => {
       throw new AigisError('you are already following that manga in that language.');
     }
     //push user id to the ping list - Use a computed property for name of key. $push creates the list's key if it doesn't exist
-    await db.updateOne(config.get('DB_NAME'), COLLECTION_NAME, { manga_id: manga_id, lang: lang }, { $push: { [`ping_list.${guild_id}`]: user_id } });
+    await db.updateOne(config.get('DB_NAME'), COLLECTION_NAME, { manga_id: manga.manga_id, lang: manga.lang }, { $push: { [`ping_list.${guild_id}`]: user_id } });
   } else {
     await db.insert(config.get('DB_NAME'), COLLECTION_NAME, manga);
   }
