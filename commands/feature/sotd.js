@@ -202,7 +202,7 @@ module.exports = {
 async function addPlaylist(id, name, guildId) {
   let token = await checkToken();
   try {
-    let res = await axios.get(`https://api.spotify.com/v1/playlists/${id}`, {
+    let res = await axios.get(`${config.get('SPOTIFY_API_BASE_URL')}playlists/${id}`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

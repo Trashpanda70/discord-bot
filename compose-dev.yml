@@ -4,12 +4,13 @@ services:
     container_name: aigis-dev
     build:
       context: .
-      dockerfile: dockerfile-dev
+      dockerfile: dev.dockerfile
     restart: unless-stopped
     volumes:
       - ./downloads:/app/downloads
       - ./logs:/app/logs
       - .:/app
+      - node_modules:/app/node_modules
     ports:
       - 3000:3000
     env_file:
@@ -41,3 +42,6 @@ services:
       - 6379:6379
     env_file:
       - dev.env
+
+volumes:
+  node_modules:

@@ -18,5 +18,5 @@ COPY . ./
 
 ENV DEV=1
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "pm2-runtime", "start", "ecosystem.dev.config.js" ]
 # CMD ["tail", "-f", "/dev/null"]

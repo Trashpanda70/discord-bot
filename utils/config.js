@@ -27,6 +27,7 @@ class Config {
       AIGIS_VELVET_IMAGE: 'https://i.imgur.com/17cEVi8.jpeg',
       AIGIS_ORGIA_ICON_IMAGE: 'https://i.imgur.com/YwbmlVg.png',
       AIGIS_EPISODE_AIGIS_IMAGE: 'https://i.imgur.com/n89HV7m.jpeg',
+      SPOTIFY_API_BASE_URL: 'https://api.spotify.com/v1/'
     };
 
     //Variable configurations that change at runtime

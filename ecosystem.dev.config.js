@@ -4,10 +4,13 @@ module.exports = {
       name: 'aigis',
       script: './index.js',
       watch: true,
+      watch_options: {
+        usePolling: true
+      },
       env: {
         DEV: 1,
         NODE_ENV: 'development',
-        NODE_EXTRA_CA_CERTS: "/Users/matthew/Development/discord-aigis/main.pem",
+        NODE_EXTRA_CA_CERTS: "/home/mattw/projects/discord-bot-aigis/main.pem",
         TZ: "America/New_York"
       },
       ignore_watch: [
@@ -17,7 +20,8 @@ module.exports = {
         '.git',
         './images',
         './downloads',
-        './logs'
+        './logs',
+        'data'
       ],
       log_type: 'raw',
     }

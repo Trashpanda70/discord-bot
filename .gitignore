@@ -4,7 +4,6 @@
 .DS_*
 **/temp/
 **/logs
-z*.js
 deploy.sh
 *.pem
 downloads/

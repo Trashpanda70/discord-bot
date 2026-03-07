@@ -104,7 +104,7 @@ exports.selectSong = async (guildId) => {
   lbl: while (searching) {
     //get playlist tracks
     try {
-      const res = await axios.get(`https://api.spotify.com/v1/playlists/${id}/tracks?offset=${offset}&limit=1`, {
+      const res = await axios.get(`${config.get('SPOTIFY_API_BASE_URL')}playlists/${id}/items?offset=${offset}&limit=1`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
