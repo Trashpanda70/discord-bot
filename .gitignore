@@ -7,7 +7,7 @@
 deploy.sh
 *.pem
 downloads/
-images/*.*
+assets/images/*.*
 data/
 dump/
 scripts/

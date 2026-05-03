@@ -173,7 +173,6 @@ The following message can be brought up by Aigis by using the `/manga ratinghelp
 - Erotica and suggestive manga is not impacted by this.
 - For an idea of what manga falls under this rule, I am essentailly using Mangadex's rating system.
 - If the channel was age restricted, and loses that status, you will still get chapter release pings but the link and manga title will not be sent. Instead you will essentially be told "A manga you are following has released chapter X".
-- After this message is a list of the supported Manga websites and whether the content rating can be determined programatically.
 
 **The full message and details:**
 
@@ -190,6 +189,9 @@ Here is a full list of the supported websites and whether their content rating c
 - [Mangakakalot](https://mangakakalot.gg/) - Content rating cannot be determined. All manga marked as age restricted.
 - [Manganato](https://manganato.gg/) - Content rating cannot be determined. All manga marked as age restricted.
 - [Mangaplus](https://mangaplus.shueisha.co.jp/updates) - Does not host age restricted manga.
+- [WeebCentral](https://weebcentral.com/) - Content rating can be determined*
+
+\* WeebCentral is not consistent with it's age rating system, and while some are marked 18+, I cannot programatically tell which ones those are. Due to this, all WeebCentral manga with either the `Hentai` or `Adult` tags are marked as age restricted to be safe.
 
 ### Command Reference
 The following menu can be brought up by Aigis, along with the explanation of the command basics and language codes, via the `/manga help` command.
@@ -239,12 +241,12 @@ Because this is Aigis form Persona 3, I decided to use Persona themed cards inst
 - Even though Blackjack has no Joker cards, I still made one for fun
 
 <p align="center">
-<img src="images/cards/wands-j.png" alt="Jack of Wands with Yukari" width="150"/>
-<img src="images/cards/swords-q.png" alt="Queen of Swords with Mitsuru" width="150"/>
-<img src="images/cards/coins-k.png" alt="King of Coins with Akihiko" width="150"/>
-<img src="images/cards/cups-a.png" alt="Ace of Cups with Makoto" width="150"/>
-<img src="images/cards/joker.png" alt="Joker with Aigis" width="150"/>
-<img src="images/cards/back.png" alt="Back of a card" width="150"/>
+<img src="assets/images/cards/wands-j.png" alt="Jack of Wands with Yukari" width="150"/>
+<img src="assets/images/cards/swords-q.png" alt="Queen of Swords with Mitsuru" width="150"/>
+<img src="assets/images/cards/coins-k.png" alt="King of Coins with Akihiko" width="150"/>
+<img src="assets/images/cards/cups-a.png" alt="Ace of Cups with Makoto" width="150"/>
+<img src="assets/images/cards/joker.png" alt="Joker with Aigis" width="150"/>
+<img src="assets/images/cards/back.png" alt="Back of a card" width="150"/>
 </p>
 
 ### Logistics

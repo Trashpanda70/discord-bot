@@ -82,7 +82,7 @@ async function getCoverArt(html) {
     const img = $('.manga-info-pic').find('img').first();
     const src = img.attr('src');
     const img_name = `mangakakalot-${src.split('/').pop()}`;
-    await downloadImage(src, path.join(__dirname, '..', '..', 'images', img_name),);
+    await downloadImage(src, path.join(__dirname, '..', '..', 'assets', 'images', img_name),);
     return img_name;
   } catch (err) {
     console.error(err);

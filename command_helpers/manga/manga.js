@@ -17,6 +17,7 @@ const websites = {
   mangapill: require('./mangapill'),
   mangakakalot: require('./mangakakalot'),
   manganato: require('./manganato'),
+  weebcentral: require('./weebcentral'),
 }
 
 exports.mangaCheck = async (client) => {
@@ -37,7 +38,7 @@ exports.mangaCheck = async (client) => {
       console.info(`New chapter for ${manga.title} on ${manga.website} in ${exports.getLanguage(manga.lang)} has been released. Sending ping.`);
       // if a new cover art is found then remove the old one
       if (manga.cover_art !== chapter.cover_art) {
-        fs.unlink(path.join(__dirname, '..', '..', 'images', manga.cover_art), () => console.info(`Removed old cover art for ${manga.title}`));
+        fs.unlink(path.join(__dirname, '..', '..', 'assets', 'images', manga.cover_art), () => console.info(`Removed old cover art for ${manga.title}`));
       }
       //update database with new chapter
       let res = await db.updateOne(config.get('DB_NAME'), exports.COLLECTION_NAME, { manga_id: manga.manga_id, lang: manga.lang },
@@ -85,7 +86,7 @@ exports.mangaCheck = async (client) => {
         //generate ping for chapter release
         const manga_link = websites[manga.website].generateMangaLink(manga.manga_id);
         ping += `A new chapter of ${hyperlink(manga.title, manga_link)} on ${websites[manga.website].NAME} in ${exports.getLanguage(manga.lang)} has been released! You can read it ${hyperlink('here', `<${link}>`)}.`;
-        const cover = path.join(__dirname, '..', '..', 'images', chapter.cover_art);
+        const cover = path.join(__dirname, '..', '..', 'assets', 'images', chapter.cover_art);
         const image = chapter.cover_art === config.get('DEFAULT_MANGA_IMAGE') ? config.get('DEFAULT_MANGA_IMAGE') : `attachment://${chapter.cover_art}`;
         const embed = new EmbedBuilder()
           .setColor(config.get('EMBED_COLOR'))
@@ -146,7 +147,7 @@ exports.unfollowManga = async (guild_id, manga_id, user_id, lang = 'en') => {
   }
   if (Object.keys(data.ping_list).length === 1 && data.ping_list[guild_id].length === 1) {
     await db.deleteOne(config.get('DB_NAME'), exports.COLLECTION_NAME, { manga_id: manga_id, lang: lang });
-    const fp = path.join(__dirname, '..', '..', 'images', data.cover_art);
+    const fp = path.join(__dirname, '..', '..', 'assets', 'images', data.cover_art);
     if (fs.existsSync(fp)) {
       fs.unlinkSync(fp);
     }

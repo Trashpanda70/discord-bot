@@ -15,7 +15,7 @@ const { setTimeout } = require('node:timers/promises');
 let games = new Map(); //map of game objects, key is player's user id
 
 const RESHUFFLE_AT = 32;
-const CARD_PATH = path.join(__dirname, '..', 'images', 'cards');
+const CARD_PATH = path.join(__dirname, '..', 'assets', 'images', 'cards');
 const CARD_WIDTH = 284;
 const CARD_HEIGHT = 400;
 const CANVAS_WIDTH = 1920;

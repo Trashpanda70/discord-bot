@@ -21,7 +21,8 @@ const websites = {
   mangapill: require('../../command_helpers/manga/mangapill'),
   mangakakalot: require('../../command_helpers/manga/mangakakalot'),
   manganato: require('../../command_helpers/manga/manganato'),
-  mangaplus: require('../../command_helpers/manga/mangaplus')
+  mangaplus: require('../../command_helpers/manga/mangaplus'),
+  weebcentral: require('../../command_helpers/manga/weebcentral'),
 }
 
 /** Array of websites that takes an ISO language to determine the language of the manga  */
@@ -118,7 +119,7 @@ module.exports = {
         desc += `To specify a language, you need to use the ${hyperlink('ISO 639-1 standard', '<https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes>')} for the language code, `;
         desc += `there are also some exceptions listed on ${hyperlink("Mangadex's website", '<https://api.mangadex.org/docs/3-enumerations/')}.\n\n`;
         desc += `If you wish to follow explicit manga that is pornographic or 18+ content, the channel which does manga chapter ping releases must be marked as "age restricted". `;
-        desc += `This is to ensure that the content is only seen by those who wish to see it, and to comply with Discord's Terms of Service.`;
+        desc += `This is to ensure that the content is only seen by those who wish to see it, and to comply with Discord's Terms of Service. `;
         desc += `For more information, please use \`/manga ratinghelp\`.`;
         //string for random command description is very long
         let rand = `Get a random manga from Mangadex with the option to filter by 3 tags using OR logic. To see valid tags visit ${hyperlink("Mangadex's website", '<https://mangadex.org/tag>')}.`;
@@ -151,7 +152,8 @@ module.exports = {
             { name: 'Mangapill', value: websites['mangapill'].getIdHelpString() },
             { name: 'Mangakakalot', value: websites['mangakakalot'].getIdHelpString() },
             { name: 'Manganato', value: websites['manganato'].getIdHelpString() },
-            { name: 'Mangaplus', value: websites['mangaplus'].getIdHelpString() }
+            { name: 'Mangaplus', value: websites['mangaplus'].getIdHelpString() },
+            { name: 'WeebCentral', value: websites['weebcentral'].getIdHelpString() }
           )
           .setTimestamp();
         await interaction.editReply({ embeds: [embed] });
@@ -175,11 +177,12 @@ module.exports = {
           .setDescription(desc)
           .setThumbnail(config.get('AIGIS_YUKATA_IMAGE'))
           .addFields(
-            { name: 'Mangadex', value: "Content rating can be determined." },
+            { name: 'Mangadex', value: "Content rating can be determined (content rating of `mature`)." },
             { name: 'Mangapill', value: "Does not have 18+ Manga." },
             { name: 'Mangakakalot', value: "Content rating cannot be determined." },
             { name: 'Manganato', value: "Content rating cannot be determined." },
-            { name: 'Mangaplus', value: "Does not have 18+ Manga." }
+            { name: 'Mangaplus', value: "Does not have 18+ Manga." },
+            { name: 'WeebCentral', value: "Content rating can be determined (contains either `Adult` or `Hentai` tag)." }
           )
           .setTimestamp();
         await interaction.editReply({ embeds: [embed] });
@@ -371,6 +374,10 @@ function parseID(id) {
   //mangaplus
   if (id.length === 6 && !isNaN(id)) {
     return 'mangaplus';
+  }
+  //weebcentral
+  if (id.length === 26) {
+    return 'weebcentral';
   }
   return null;
 }

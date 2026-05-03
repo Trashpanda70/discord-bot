@@ -24,7 +24,7 @@ compose*.yml
 # Not needed in container
 **/temp/
 z*.js
-images/*.*
+assets/images/*.*
 data/
 downloads/
 logs/

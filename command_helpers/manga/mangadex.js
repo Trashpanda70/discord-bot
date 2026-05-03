@@ -165,7 +165,7 @@ exports.getCoverArt = async (mangaID, coverID, keep = false) => {
   const data = await axios.get(`https://api.mangadex.org/cover/${coverID}`);
   const filename = data.data.data.attributes.fileName;
   const url = `https://uploads.mangadex.org/covers/${mangaID}/${filename}`;
-  const filePath = keep ? path.join(__dirname, '..', '..', 'images', `${filename}`) : path.join(__dirname, '..', '..', 'temp', `${filename}`);
+  const filePath = keep ? path.join(__dirname, '..', '..', 'assets', 'images', `${filename}`) : path.join(__dirname, '..', '..', 'temp', `${filename}`);
   try {
     await downloadImage(url, filePath);
     if (keep) {

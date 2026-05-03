@@ -20,7 +20,7 @@
     "axios": "^1.13.6",
     "bignumber.js": "^9.3.1",
     "bull": "^4.16.5",
-    "canvas": "^3.2.1",
+    "canvas": "^3.2.3",
     "cheerio": "^1.2.0",
     "connect-redis": "^9.0.0",
     "cron": "^4.4.0",
@@ -33,6 +33,6 @@
     "mongodb": "3.6",
     "playwright": "^1.58.2",
     "redis": "^5.11.0",
-    "sanitize-filename": "^1.6.3"
+    "sanitize-filename": "^1.6.4"
   }
 }

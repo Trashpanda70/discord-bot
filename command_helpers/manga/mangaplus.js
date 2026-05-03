@@ -90,7 +90,7 @@ async function getCoverArt(page, manga_id) {
     const imgElement = page.locator('img.TitleDetailHeader-module_coverImage_3rvaT');
     const img = await imgElement.getAttribute('src');
     let imgName = `mp-${manga_id}.jpg`;
-    downloadImage(img, path.join(__dirname, '..', '..', 'images', imgName), 'https://mangaplus.shueisha.co.jp');
+    downloadImage(img, path.join(__dirname, '..', '..', 'assets', 'images', imgName), 'https://mangaplus.shueisha.co.jp');
     return imgName;
   } catch (err) {
     console.error(err);

@@ -18,7 +18,7 @@ module.exports = {
         '.gitignore',
         '**/temp',
         '.git',
-        './images',
+        './assets',
         './downloads',
         './logs',
         'data'
